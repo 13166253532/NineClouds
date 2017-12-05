@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TodoApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>我的待办</title>
+    <link rel="stylesheet" href="../../ali/sm.css">
+    <link rel="stylesheet" href="../../ali/sm-extend.min.css">
+    <link rel="stylesheet" href="../css/TodoList.css">
+    <script src="../../lib/js/moment.min.js"></script>
+    <script src="../../ali/zepto.js"></script>
+
+
+    <script src="../../lib/js/angular/angular.min.js"></script>
+    <script src="../../lib/js/angular/angular-route.min.js"></script>
+    <script src="../../lib/js/angular/angular-resource.min.js"></script>
+    <script src="../../lib/js/angular/angular-animate.min.js"></script>
+
+    <script src="../../config/env/env.js"></script>
+    <script src="../../config/config.js"></script>
+    <script src="../../config/url.js"></script>
+
+    <script src="../js/jqueryjs/todo.control.js"></script>
+    <script src="../js/controller/todo.controller.js"></script>
+    <script src="../js/service/todo.service.js"></script>
+    <script src="../js/filters/todo.filters.js"></script>
+    <script src="../js/app/todo.app.js"></script>
+</head>
+<body>
+<div class="iosStyle"></div>
+<div class="page-group">
+
+    <!--列表-->
+    <div id="page-ptr" class="page page-current" ng-controller="TodoListController">
+        <header class="bar bar-nav bar-nav-color">
+            <h1 class='title' ng-bind="tabTitle"></h1>
+        </header>
+        <nav class="bar bar-tab">
+            <a class="tab-item active" ng-click="tabClick('todolist')">
+                <span class="iconfont icon icon-daibanliebiao"></span>
+                <span class="tab-label">待办列表</span>
+            </a>
+            <a class="tab-item"  ng-click="tabClick('todolistAlready')">
+                <span class="iconfont icon icon-yibanliebiao"></span>
+                <span class="tab-label">已办列表</span>
+            </a>
+        </nav>
+        <div class="bar bar-header-secondary">
+            <div class="searchbar row">
+                <div class="search-input col-95">
+                    <label class="icon icon-search" for="search"></label>
+                    <input type="search" id="search"  ng-model="puttext" placeholder='输入关键字...'/>
+                </div>
+                <!--<a class="button button-fill button-primary col-15 search-pan" ng-click="searchList(puttext)"><span class="icon icon-search"></span></a>-->
+            </div>
+        </div>
+        <div class="content pull-to-refresh-content native-scroll">
+            <div class=" infinite-scroll infinite-scroll-bottom"
+                 data-distance="100" id="todolist">
+                <!-- 加载提示符 -->
+                <div class="pull-to-refresh-layer">
+                    <div class="preloader"></div>
+                    <div class="pull-to-refresh-arrow"></div>
+                </div>
+                <!-- 下面是正文 -->
+                <div class="container">
+
+                    <div class="list-block media-list todo-list">
+                        <ul>
+                            <li class="item-content" ng-repeat="data in gtasks " ng-click="showdetail(data)">
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title namesub" >
+                                            <span ng-bind="data.ordertype"></span>
+                                            <span ng-bind="'('+data.sales+')'"></span>
+                                        </div>
+                                        <!--<div class="item-title namesub">{{data.subject}}({{data.startuser}})</div>-->
+                                    </div>
+                                    <div class="item-subtitle">单据号：<span ng-bind="data.docentry"></span><br>单据类型编号：<span ng-bind="data.docnum"></span></div>
+                                    <div class="timeDate" ng-bind="data.docdate | changedate2"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- 加载提示符 -->
+                <div class="infinite-scroll-preloader" ng-show="showmore">
+                    <div class="preloader"></div>
+                </div>
+                <div class="showNoMore" ng-hide="showmore">
+                    <div class="refreshLetter">已加载全部</div>
+                </div>
+            </div>
+
+            <div class=" infinite-scroll infinite-scroll-bottom "
+                 data-distance="100" id="todolistAlready">
+                <!-- 加载提示符 -->
+                <div class="pull-to-refresh-layer">
+                    <div class="preloader"></div>
+                    <div class="pull-to-refresh-arrow"></div>
+                </div>
+                <!-- 下面是正文 -->
+                <div class="container">
+                    <div class="list-block media-list todo-list">
+                        <ul>
+                            <li class="item-content" ng-repeat="data in gtasks2 " ng-click="showdetailAlready(data)">
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title namesub" >
+                                            <span ng-bind="data.ordertype"></span>
+                                            <span ng-bind="'('+data.sales+')'"></span>
+                                        </div>
+                                        <!--<div class="item-title namesub">{{data.subject}}({{data.startuser}})</div>-->
+                                    </div>
+                                    <div class="item-subtitle">单据号：<span ng-bind="data.docentry"></span><br>单据类型编号：<span ng-bind="data.docnum"></span></div>
+                                    <div class="timeDate" ng-bind="data.docdate | changedate2"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- 加载提示符 -->
+                <div class="infinite-scroll-preloader" ng-show="showmore2">
+                    <div class="preloader"></div>
+                </div>
+                <div class="showNoMore" ng-hide="showmore2">
+                    <div class="refreshLetter2">已加载全部</div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <!--内联页面-->
+    <!--待办列表-->
+    <div class="page" id='router2' ng-controller="TodoDetailController">
+
+
+        <header class="bar bar-nav bar-nav-color">
+            <a class="button button-link button-nav pull-left back">
+                <span class="icon icon-left"></span>
+            </a>
+            <!--{{passvalue.activitynamecn}}-->
+            <h1 class='title'>报告审批</h1>
+        </header>
+
+
+        <div class="content  scroll-wrap" id="scroll-1">
+            <div class="content-block">
+
+                <div class="plan">
+                    <p class="ttt"><img class="nume" src="../../images/nume.png"/>基本信息
+                    </p>
+                    <!--ng-click="viewAttachmentOrDetail(data.viewformdownloadurl)"-->
+                    <div class="first mes" ng-repeat="_data in data track by $index"  ng-show="kAttachmentSection">
+                        <p class="ttt"><span  ng-bind="_data.fields"></span><i class="{{'rightIcon1 rightIcon1'+$index}}"
+                                                                     ng-click="closeoropen(1,$index)"></i></p>
+                        <div ng-show="{{'kApplyInfoSection' + $index + ''}}">
+                            <div ng-repeat="nodeTable in _data.nodetable track by $index">
+                                <div class="list first">
+                                    <p class="tt" ng-bind="nodeTable.key+':'"></p>
+                                    <div>
+                                        <p class="text3" ng-bind="nodeTable.value"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+          
+
+                <div class="plan">
+                    <p class="ttt"><img class="nume" src="../../images/jilu.png"/>审批意见<i class="rightIcon3"
+                                                                                         ng-click="closeoropen(4)"></i>
+                    </p>
+                    <div class="first">
+                        <!--<div class="choiceperd" ng-repeat="choicedPe in choicedPerData"-->
+                             <!--ng-click="deletePerdata(choicedPe)">-->
+
+                            <!--{{choicedPe.cnname}}<img src="../../images/ic_delet.png">-->
+                        <!--</div>-->
+                        <label class="" ng-repeat="approvaltypeDTO in choicedPerData2.approvaltypeDTO" ng-show="kSugestionSection">
+                            <input type="radio" name="doc-radio-1" value="option1"
+                                   ng-click="choiceDTO(approvaltypeDTO)">{{approvaltypeDTO.typename}}
+                        </label>
+
+
+                        <textarea class="text_ar" rows="5" ng-model="inputvalue" id="doc-ta-1" placeholder="请输入审批意见"
+                                  ng-show="kSugestionSection"></textarea>
+                    </div>
+                </div>
+
+                <div class="btnn">
+                    <button type="submit" class="sub " ng-click="submiit()">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--已办列表-->
+    <div class="page" id='routerAlready' ng-controller="TodoDetailAlreadyController">
+
+
+        <header class="bar bar-nav bar-nav-color">
+            <a class="button button-link button-nav pull-left back">
+                <span class="icon icon-left"></span>
+            </a>
+            <!--{{passvalue.activitynamecn}}-->
+            <h1 class='title'>报告详情</h1>
+        </header>
+
+
+        <div class="content  scroll-wrap" id="scroll-1">
+            <div class="content-block">
+
+                <div class="plan">
+                    <p class="ttt"><img class="nume" src="../../images/nume.png"/>基本信息
+                    </p>
+                    <!--ng-click="viewAttachmentOrDetail(data.viewformdownloadurl)"-->
+                    <div class="first mes" ng-repeat="_data in data track by $index"  ng-show="kAttachmentSection">
+                        <p class="ttt"><span  ng-bind="_data.fields"></span><i class="{{'rightIcon1 rightIcon1'+$index}}"
+                                                                               ng-click="closeoropen(1,$index)"></i></p>
+                        <div ng-show="{{'kApplyInfoSection' + $index + ''}}">
+                            <div ng-repeat="nodeTable in _data.nodetable track by $index">
+                                <div class="list first">
+                                    <p class="tt" ng-bind="nodeTable.key+':'"></p>
+                                    <div>
+                                        <p class="text3" ng-bind="nodeTable.value"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script src="../../ali/sm.js"></script>
+<script src="../../ali/sm-extend.js"></script>
+<script src="../js/jqueryjs/phoneUI.js"></script>
+
+</body>
+</html>

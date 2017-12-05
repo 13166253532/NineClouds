@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+
+
+var app = require ('../app');
+var config = require('../config/config');
+var utils = require('../config/utils')
+var server = app.listen(config.port,function(){
+  console.log('app started , listening on port:',config.port);
+});
+var io = require('socket.io').listen(server);
+
+//初始化
+global.socketUser = {}
+//global.socketUser = socketUser;
+//监听连接
+io.sockets.on('connection', function (socket){
+  //响应连接
+  io.sockets.emit('conn', { text: 'socketId:'+socket.id});
+  //监听用户登录并存储socket
+  socket.on('login', function (data,fn) {
+    socketUser[socket.id] = {'userid':data.userid,'socket':socket ,postfix : utils.socket.getUserNextfix(data.userid)};
+    utils.log('login',data.userid+"_"+utils.socket.getUserPostFixBySocketid(socket.id)+'登录成功!')
+  });
+  //监听断线
+  socket.on('disconnect', function(){
+    utils.log('disconnect',utils.socket.getUserId(socket.id)+'_'+utils.socket.getUserPostFixBySocketid(socket.id)+'退出登录!');
+    delete socketUser[socket.id];
+  });
+
+});
+
+
+module.exports = socketUser;

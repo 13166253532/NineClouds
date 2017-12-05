@@ -1,0 +1,226 @@
+{
+  "userid": "0100005249",
+  "processname": "QJSQProcess",
+  "defaultpositionid": "533",
+  "projectname": "QJSQProcess",
+  "createdeptid": "533",
+  "reqno": "",
+  "title": "我是小妹子",
+  "telephone": "5538",
+  "createcompanyid": "533",
+  "selectPreApproveUserid": "",
+  "fields": [
+    {
+      "fieldname": "ANNUALLEAVE",
+      "fieldvalue": "5",
+      "inputtype": "text",
+      "tablename": "tm_cathay_QJSQ",
+      "tabletype": "0",
+      "parenttablename": ""
+    },
+    {
+      "fieldname": "OVERTIMELEAVE",
+      "fieldvalue": "4",
+      "inputtype": "text",
+      "tablename": "tm_cathay_QJSQ",
+      "tabletype": "0",
+      "parenttablename": ""
+    },
+    {
+      "fieldname": "SPECIALVOCATION",
+      "fieldvalue": "2",
+      "inputtype": "text",
+      "tablename": "tm_cathay_QJSQ",
+      "tabletype": "0",
+      "parenttablename": ""
+    },
+    {
+      "fieldname": "SYANNUALLEAVE",
+      "fieldvalue": "2",
+      "inputtype": "text",
+      "tablename": "tm_cathay_QJSQ",
+      "tabletype": "0",
+      "parenttablename": ""
+    },
+    {
+      "fieldname": "LEAVEPEOPLE",
+      "fieldvalue": "0100000557",
+      "inputtype": "selectPeopleSingle",
+      "tablename": "tm_cathay_QJSQ",
+      "tabletype": "0",
+      "parenttablename": ""
+    },
+    {
+      "fieldname": "CONTENT",
+      "fieldvalue": "楼上",
+      "inputtype": "textarea",
+      "tablename": "tm_cathay_QJSQ",
+      "tabletype": "0",
+      "parenttablename": ""
+    },
+    {
+      "fieldname": "LEAVETYPE",
+      "fieldvalue": "病假",
+      "inputtype": "select",
+      "tablename": "tm_cathay_QJSQ_part",
+      "tabletype": "1",
+      "parenttablename": "tm_cathay_QJSQ",
+      "sort": "2"
+    },
+    {
+      "fieldname": "ASPECTTARTIME",
+      "fieldvalue": "2016-12-14",
+      "inputtype": "date",
+      "tablename": "tm_cathay_QJSQ_part",
+      "tabletype": "1",
+      "parenttablename": "tm_cathay_QJSQ",
+      "sort": "2"
+    },
+    {
+      "fieldname": "STAGESTART",
+      "fieldvalue": "A",
+      "inputtype": "select",
+      "tablename": "tm_cathay_QJSQ_part",
+      "tabletype": "1",
+      "parenttablename": "tm_cathay_QJSQ",
+      "sort": "2"
+    },
+    {
+      "fieldname": "ASPECTNDTIME",
+      "fieldvalue": "2016-12-15",
+      "inputtype": "date",
+      "tablename": "tm_cathay_QJSQ_part",
+      "tabletype": "1",
+      "parenttablename": "tm_cathay_QJSQ",
+      "sort": "2"
+    },
+    {
+      "fieldname": "STAGEEND",
+      "fieldvalue": "A",
+      "inputtype": "select",
+      "tablename": "tm_cathay_QJSQ_part",
+      "tabletype": "1",
+      "parenttablename": "tm_cathay_QJSQ",
+      "sort": "2"
+    },
+    {
+      "fieldname": "ASPECTTOTAL",
+      "fieldvalue": "1",
+      "inputtype": "text",
+      "tablename": "tm_cathay_QJSQ_part",
+      "tabletype": "1",
+      "parenttablename": "tm_cathay_QJSQ",
+      "sort": "2"
+    },
+    {
+      "fieldname": "LEAVETYPE",
+      "fieldvalue": "路程假",
+      "inputtype": "select",
+      "tablename": "tm_cathay_QJSQ_part",
+      "tabletype": "1",
+      "parenttablename": "tm_cathay_QJSQ",
+      "sort": "4"
+    },
+    {
+      "fieldname": "ASPECTTARTIME",
+      "fieldvalue": "2016-12-15",
+      "inputtype": "date",
+      "tablename": "tm_cathay_QJSQ_part",
+      "tabletype": "1",
+      "parenttablename": "tm_cathay_QJSQ",
+      "sort": "4"
+    },
+    {
+      "fieldname": "STAGESTART",
+      "fieldvalue": "P",
+      "inputtype": "select",
+      "tablename": "tm_cathay_QJSQ_part",
+      "tabletype": "1",
+      "parenttablename": "tm_cathay_QJSQ",
+      "sort": "4"
+    },
+    {
+      "fieldname": "ASPECTNDTIME",
+      "fieldvalue": "2016-12-16",
+      "inputtype": "date",
+      "tablename": "tm_cathay_QJSQ_part",
+      "tabletype": "1",
+      "parenttablename": "tm_cathay_QJSQ",
+      "sort": "4"
+    },
+    {
+      "fieldname": "STAGEEND",
+      "fieldvalue": "A",
+      "inputtype": "select",
+      "tablename": "tm_cathay_QJSQ_part",
+      "tabletype": "1",
+      "parenttablename": "tm_cathay_QJSQ",
+      "sort": "4"
+    },
+    {
+      "fieldname": "ASPECTTOTAL",
+      "fieldvalue": "1",
+      "inputtype": "text",
+      "tablename": "tm_cathay_QJSQ_part",
+      "tabletype": "1",
+      "parenttablename": "tm_cathay_QJSQ",
+      "sort": "4"
+    },
+    {
+      "fieldname": "SPJD",
+      "fieldvalue": "0",
+      "inputtype": "text",
+      "tablename": "tm_cathay_QJSQ",
+      "tabletype": "0",
+      "parenttablename": ""
+    },
+    {
+      "fieldname": "LEAVESTIAN",
+      "fieldvalue": "1.5",
+      "inputtype": "text",
+      "tablename": "tm_cathay_QJSQ",
+      "tabletype": "0",
+      "parenttablename": ""
+    },
+    {
+      "fieldname": "DEPTID",
+      "fieldvalue": "22",
+      "inputtype": "text",
+      "tablename": "tm_cathay_QJSQ",
+      "tabletype": "0",
+      "parenttablename": ""
+    },
+    {
+      "fieldname": "COMPANYID",
+      "fieldvalue": "2",
+      "inputtype": "text",
+      "tablename": "tm_cathay_QJSQ",
+      "tabletype": "0",
+      "parenttablename": ""
+    },
+    {
+      "fieldname": "GANGID",
+      "fieldvalue": "533",
+      "inputtype": "text",
+      "tablename": "tm_cathay_QJSQ",
+      "tabletype": "0",
+      "parenttablename": ""
+    },
+    {
+      "fieldname": "SHJG",
+      "fieldvalue": "0",
+      "inputtype": "text",
+      "tablename": "tm_cathay_QJSQ",
+      "tabletype": "0",
+      "parenttablename": ""
+    },
+    {
+      "fieldname": "LEAVESSQU",
+      "fieldvalue": "4",
+      "inputtype": "text",
+      "tablename": "tm_cathay_QJSQ",
+      "tabletype": "0",
+      "parenttablename": ""
+    }
+  ]
+}

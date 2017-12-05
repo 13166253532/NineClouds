@@ -1,0 +1,73 @@
+{
+  "code": 0,
+  "message": "success",
+  "content": [
+    {
+      "id": 1791,
+      "subjectid": 16515,
+      "subjectname": "",
+      "subjecttype": "dept",
+      "standard": "规格",
+      "model": "型号",
+      "count": "10",
+      "price": "160000",
+      "type": "1",
+      "date": "17/1/28",
+      "responsible": "",
+      "remarks": "部门",
+      "pid": "",
+      "instid": "",
+      "deptid": 16515,
+      "companyid": 16511,
+      "execution": "100",
+      "freezing": "500",
+      "year": "2017",
+      "children": [
+        {
+          "id": 1792,
+          "subjectid": 66,
+          "subjectname": "办公绿化",
+          "subjecttype": "fy",
+          "standard": "规格",
+          "model": "型号",
+          "count": "10",
+          "price": "3000000000000000000",
+          "type": "2",
+          "date": "17/1/28",
+          "responsible": "",
+          "remarks": "费用",
+          "pid": 1791,
+          "instid": "",
+          "deptid": 16515,
+          "companyid": 16511,
+          "execution": "100",
+          "freezing": "8355",
+          "year": "2017",
+          "children": [
+            {
+              "id": 1813,
+              "subjectid": 1813,
+              "subjectname": "鲜花采购",
+              "subjecttype": "goods",
+              "standard": "规格",
+              "model": "型号",
+              "count": "10",
+              "price": "100",
+              "type": "3",
+              "date": "17/1/28",
+              "responsible": "",
+              "remarks": "商品",
+              "pid": 1792,
+              "instid": "",
+              "deptid": 16515,
+              "companyid": 16511,
+              "execution": "100",
+              "freezing": "500",
+              "year": "2017"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="ip/lib/js/jQuery/jquery.min.js"></script>
+</head>
+<body>
+<div class="dddd">
+    <div class="tab" style="width: 100%;height: 600px;background: #000"></div>
+    <div class="tab" style="width: 100%;height: 600px;background: red"></div>
+    <div class="tab" style="width: 100%;height: 600px;background: black"></div>
+    <div class="tab" style="width: 100%;height: 600px;background: blue"></div>
+</div>
+<div style="position: fixed;top: 0;right: 0;width: 60px;background: #fff">
+    <p class="tit">top1</p>
+    <p class="tit">top2</p>
+    <p class="tit">top3</p>
+    <p class="tit">top4</p>
+</div>
+
+<script>
+    $(".tit").click(function () {
+        var index = $(".tit").index(this);
+        var height = $(".tab").eq(index).offset().top;
+        $('html,body').animate({scrollTop: height + 'px'}, 500);
+    });
+</script>
+</body>
+</html>
