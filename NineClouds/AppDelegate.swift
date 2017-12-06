@@ -12,16 +12,44 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var uploader = IFlyDataUploader()
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //UIApplication.shared.statusBarStyle = .lightContent
-        
+        addIFly()
         HTHttpConfig.sharedInstance().isout = false
         ProjectConfigGroup.initHttpConfig()
         gotuMDFGuideViewController()
         return true
     }
+    func addIFly(){
+        IFlySetting.setLogFile(.LVL_ALL)
+        IFlySetting.showLogcat(true)
+        let paths:NSArray = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true) as NSArray
+        let cachePath:String = paths.object(at: 0) as! String
+        IFlySetting.setLogFilePath(cachePath)
+        let initString:NSString = NSString.init(format: "appid=%@", "5a25fb32")
+        IFlySpeechUtility.createUtility(initString as String!)
+        let iFlyUserWords:IFlyUserWords = IFlyUserWords.init(json: "{\"userword\":[{\"name\":\"iflytek\",\"words\":[\"目标\",\"预测\",\"纯销\",\"\",\"预策\",\"切换与目标比进度\",\"切换与预测比进度\",\"切换考核\"，,\"切换纯销\",\"商业\",\"纯销预测\",\"考核预测\",\"日程\",\"打开\",\"上海\",\"控股\",\"药品部\",\"新药部\",\"上药\",\"打开考核一侧\"]}]}")
+        uploader.setParameter("iat", forKey: "sub")
+        uploader.setParameter("userword", forKey: "dtt")
+        uploader.uploadData(completionHandler: nil ,name: "userwords", data: iFlyUserWords.toString())
+    }
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        IFlySpeechUtility.getUtility().handleOpen(url)
+        return true
+    }
+    func onUploadFinished(error:IFlySpeechError) {
+        print("erry.errorCode"+String(error.errorCode))
+        if error.errorCode == 0 {
+            print("____________****上传成功")
+        }else{
+            print("____________****上传shinai:"+String(error.errorCode))
+        }
+        
+    }
+    
     func gotuMDFGuideViewController(){
         if (!(UserDefaults.standard.bool(forKey: "everLaunched"))) {
             UserDefaults.standard.set(true, forKey:"everLaunched")

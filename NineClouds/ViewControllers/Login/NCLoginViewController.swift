@@ -46,12 +46,12 @@ class NCLoginViewController: BaseViewController,UITextFieldDelegate {
         hud.mode = MBProgressHUDModeText
         
         self.hideNavigationBar()
-        addInitBackgroundImageView()
-        addInitHeadTitleView()
-        addInitHeadImageView()
-        addInitTextView()
-        addMemoryView()
-        addInitLoginButton()
+//        addInitBackgroundImageView()
+//        addInitHeadTitleView()
+//        addInitHeadImageView()
+//        addInitTextView()
+//        addMemoryView()
+//        addInitLoginButton()
         // Do any additional setup after loading the view.
     }
     func addInitBackgroundImageView(){
@@ -238,15 +238,23 @@ class NCLoginViewController: BaseViewController,UITextFieldDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        userTextView.resignFirstResponder()
-        passTextView.resignFirstResponder()
+//        userTextView.resignFirstResponder()
+//        passTextView.resignFirstResponder()
+        IFlySpeech.share().initRecognizer()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-   
+    @IBAction func kaishiAction(_ sender: UIButton) {
+        
+        IFlySpeech.share().startVoice()
+    }
+    
+    @IBAction func jieshuAction(_ sender: UIButton) {
+        IFlySpeech.share().stopVoice()
+    }
+    
 
 }

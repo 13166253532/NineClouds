@@ -9,6 +9,9 @@
 #import "TabBarView.h"
 #import "ModelJudgeFunc.h"
 
+#import "iflyMSC/iflyMSC.h"
+#import "IFlySpeech.h"
+
 //#import "JSONModel.h"
 #import "HTHttpConfig.h"
 #import "ProjectConfigGroup.h"

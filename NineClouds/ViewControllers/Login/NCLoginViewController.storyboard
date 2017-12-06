@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +20,37 @@
                     <view key="view" contentMode="scaleToFill" id="yvP-qm-Z0R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RPg-u2-Z9I">
+                                <rect key="frame" x="0.0" y="75" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cHz-6W-gsX"/>
+                                </constraints>
+                                <state key="normal" title="开始"/>
+                                <connections>
+                                    <action selector="kaishiAction:" destination="QiP-3X-RmF" eventType="touchUpInside" id="bdr-YG-ycv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2N-Bn-UcV">
+                                <rect key="frame" x="0.0" y="155" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="WeM-S2-c9n"/>
+                                </constraints>
+                                <state key="normal" title="结束"/>
+                                <connections>
+                                    <action selector="jieshuAction:" destination="QiP-3X-RmF" eventType="touchUpInside" id="TwC-ce-wAn"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="e2N-Bn-UcV" firstAttribute="leading" secondItem="yvP-qm-Z0R" secondAttribute="leading" id="5qC-WR-D9b"/>
+                            <constraint firstItem="RPg-u2-Z9I" firstAttribute="leading" secondItem="yvP-qm-Z0R" secondAttribute="leading" id="Cxj-dl-eMD"/>
+                            <constraint firstItem="e2N-Bn-UcV" firstAttribute="top" secondItem="RPg-u2-Z9I" secondAttribute="bottom" constant="50" id="LqW-Oq-Jzs"/>
+                            <constraint firstAttribute="trailing" secondItem="RPg-u2-Z9I" secondAttribute="trailing" id="RYd-ei-rLd"/>
+                            <constraint firstAttribute="trailing" secondItem="e2N-Bn-UcV" secondAttribute="trailing" id="g8t-Dw-bZw"/>
+                            <constraint firstItem="RPg-u2-Z9I" firstAttribute="top" secondItem="0cM-vL-Hmw" secondAttribute="bottom" constant="55" id="kf8-hu-rqe"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Yl-3F-nQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
