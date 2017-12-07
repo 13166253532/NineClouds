@@ -30,7 +30,7 @@ static VolumeView* volumeView = nil;
     [_suspensionBtn setBackgroundImage:[UIImage imageNamed:@"yuyin"] forState:UIControlStateNormal];
     [_suspensionBtn setBackgroundImage:[UIImage imageNamed:@"yuyinselec"] forState:UIControlStateSelected];
     _suspensionBtn.backgroundColor = [UIColor clearColor];
-    [_suspensionBtn addTarget:self action:@selector(voiceStopVoiceAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_suspensionBtn addTarget:self action:@selector(MicrophoneUsageDescription:) forControlEvents:UIControlEventTouchUpInside];
     [[self getRootController] addSubview:_suspensionBtn];
     UIPanGestureRecognizer *panGR = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panVerticalUpView:)];
     [_suspensionBtn addGestureRecognizer:panGR];
@@ -47,15 +47,55 @@ static VolumeView* volumeView = nil;
     //NSLog(@"point x:%f y:%f",point.x,point.y);
     _suspensionBtn.center = CGPointMake(point.x, point.y);
 }
+-(void)MicrophoneUsageDescription:(UIButton *)sender{
+    AVAuthorizationStatus videoAuthStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
+    if (videoAuthStatus == AVAuthorizationStatusNotDetermined) {// 未询问用户是否授权
+        //第一次询问用户是否进行授权
+        [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
+            if (granted) {
+                NSLog(@"granted==YES");
+                [self voiceStopVoiceAction:sender];
+            }else {
+                NSLog(@"granted==NO");
+                _suspensionBtn.selected = YES;
+                return ;
+            }
+        }];
+    }else if(videoAuthStatus == AVAuthorizationStatusRestricted || videoAuthStatus == AVAuthorizationStatusDenied) {// 未授权
+         NSLog(@"未授权");
+        [self showSetAlertView];
+        _suspensionBtn.selected = NO;
+    }else{// 已授权
+        [self voiceStopVoiceAction:sender];
+        NSLog(@"授权");
+    }
+
+}
+- (void)showSetAlertView {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"麦克风权限未开启" message:@"麦克风权限未开启，请进入系统【设置】>【隐私】>【麦克风】中打开开关,开启麦克风功能" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *setAction = [UIAlertAction actionWithTitle:@"去设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //跳入当前App设置界面
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+    }];
+    [alertVC addAction:cancelAction];
+    [alertVC addAction:setAction];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alertVC animated:YES completion:nil];
+}
 
 -(void)voiceStopVoiceAction:(UIButton *)sender{
-    if (sender.selected == YES) {
+    if (_suspensionBtn.selected == YES) {
         [[IFlySpeech ShareIFlySpeech] stopVoice];
+        _soundImageView.hidden = YES;
     }else{
         [[IFlySpeech ShareIFlySpeech] startVoice];
     }
-    sender.selected = YES!=sender.selected?YES:NO;
+    _suspensionBtn.selected = YES!=_suspensionBtn.selected?YES:NO;
 }
+
+
 -(void)addInitSoundView{
     _soundImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_HEIGHT/4, SCREEN_HEIGHT/4)];
     _soundImageView.image = [UIImage imageNamed:@"sound_1"];
