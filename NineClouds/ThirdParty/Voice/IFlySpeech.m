@@ -34,12 +34,7 @@ static IFlySpeech* iFlySpeech = nil;
         });
     return iFlySpeech;
 }
-//+ (IFlySpeech *)ShareIFlySpeech{
-//    if (! iFlySpeech) {
-//        iFlySpeech=[[super allocWithZone:NULL]init];
-//    }
-//    return iFlySpeech;
-//}
+
 -(void)initRecognizer{
     if (_iFlySpeechRecognizer == nil) {
         _iFlySpeechRecognizer = [IFlySpeechRecognizer sharedInstance];
@@ -114,6 +109,7 @@ static IFlySpeech* iFlySpeech = nil;
     
     NSLog(@"结束----%@",self.textView);
     [_iFlySpeechRecognizer stopListening];
+    [self.delegate getIFlySpeechMessage:self.textView];
 }
 //结果返回代理
 -(void)onResults:(NSArray *)results isLast:(BOOL)isLast{

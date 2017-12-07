@@ -21,35 +21,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RPg-u2-Z9I">
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7XW-zz-Dkv">
                                 <rect key="frame" x="0.0" y="75" width="375" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.56103515625" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="cHz-6W-gsX"/>
+                                    <constraint firstAttribute="height" constant="30" id="930-KV-2iC"/>
                                 </constraints>
                                 <state key="normal" title="开始"/>
                                 <connections>
-                                    <action selector="kaishiAction:" destination="QiP-3X-RmF" eventType="touchUpInside" id="bdr-YG-ycv"/>
+                                    <action selector="kaishiAction:" destination="QiP-3X-RmF" eventType="touchUpInside" id="hSQ-uQ-Gbf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2N-Bn-UcV">
-                                <rect key="frame" x="0.0" y="155" width="375" height="30"/>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFi-oI-X4z">
+                                <rect key="frame" x="0.0" y="164" width="375" height="30"/>
+                                <color key="backgroundColor" red="0.66010199652777779" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="WeM-S2-c9n"/>
+                                    <constraint firstAttribute="height" constant="30" id="L11-PM-CX5"/>
                                 </constraints>
                                 <state key="normal" title="结束"/>
                                 <connections>
-                                    <action selector="jieshuAction:" destination="QiP-3X-RmF" eventType="touchUpInside" id="TwC-ce-wAn"/>
+                                    <action selector="jieshuAction:" destination="QiP-3X-RmF" eventType="touchUpInside" id="V3u-is-enw"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="e2N-Bn-UcV" firstAttribute="leading" secondItem="yvP-qm-Z0R" secondAttribute="leading" id="5qC-WR-D9b"/>
-                            <constraint firstItem="RPg-u2-Z9I" firstAttribute="leading" secondItem="yvP-qm-Z0R" secondAttribute="leading" id="Cxj-dl-eMD"/>
-                            <constraint firstItem="e2N-Bn-UcV" firstAttribute="top" secondItem="RPg-u2-Z9I" secondAttribute="bottom" constant="50" id="LqW-Oq-Jzs"/>
-                            <constraint firstAttribute="trailing" secondItem="RPg-u2-Z9I" secondAttribute="trailing" id="RYd-ei-rLd"/>
-                            <constraint firstAttribute="trailing" secondItem="e2N-Bn-UcV" secondAttribute="trailing" id="g8t-Dw-bZw"/>
-                            <constraint firstItem="RPg-u2-Z9I" firstAttribute="top" secondItem="0cM-vL-Hmw" secondAttribute="bottom" constant="55" id="kf8-hu-rqe"/>
+                            <constraint firstItem="7XW-zz-Dkv" firstAttribute="top" secondItem="0cM-vL-Hmw" secondAttribute="bottom" constant="55" id="4vJ-4Z-9cn"/>
+                            <constraint firstItem="AFi-oI-X4z" firstAttribute="top" secondItem="7XW-zz-Dkv" secondAttribute="bottom" constant="59" id="6pb-Ef-y0V"/>
+                            <constraint firstItem="7XW-zz-Dkv" firstAttribute="leading" secondItem="yvP-qm-Z0R" secondAttribute="leading" id="D84-Ja-gHL"/>
+                            <constraint firstItem="AFi-oI-X4z" firstAttribute="leading" secondItem="yvP-qm-Z0R" secondAttribute="leading" id="MgE-8I-xkI"/>
+                            <constraint firstAttribute="trailing" secondItem="AFi-oI-X4z" secondAttribute="trailing" id="Zv4-VQ-lQY"/>
+                            <constraint firstAttribute="trailing" secondItem="7XW-zz-Dkv" secondAttribute="trailing" id="hRT-0y-PSx"/>
                         </constraints>
                     </view>
                 </viewController>

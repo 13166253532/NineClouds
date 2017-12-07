@@ -8,7 +8,7 @@
 
 import UIKit
 import WebKit
-class WebViewController: BaseViewController ,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler,UIGestureRecognizerDelegate,TabBarViewDelegate{
+class WebViewController: BaseViewController ,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler,UIGestureRecognizerDelegate,TabBarViewDelegate,IFlySpeechDelegate{
     @available(iOS 8.0, *)
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == "" {
@@ -45,7 +45,7 @@ class WebViewController: BaseViewController ,WKUIDelegate,WKNavigationDelegate,W
         initReturnBtn()
         addInitUIScrollView()
         addInitTabBar()
-        
+        initVolumeFunc()
         // Do any additional setup after loading the view.
     }
     override func initReturnBtn(){
@@ -151,15 +151,21 @@ class WebViewController: BaseViewController ,WKUIDelegate,WKNavigationDelegate,W
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func initVolumeFunc(){
+        //初始化讯飞
+        IFlySpeech.share().initRecognizer()
+        IFlySpeech.share().delegate = self
+        //添加 语音视图
+        VolumeView.share().actionButton()
     }
-    */
+    //获取音量
+    func getIFlySpeechVolume(_ volume: Int32) {
+        VolumeView.share().setIFlySpeechVolume(volume)
+    }
+    //获取结果
+    func getIFlySpeechMessage(_ message: String!) {
+        VolumeView.share().isSoundImageViewHidden()
+        SMToastView.showMessage(message)
+    }
 
 }

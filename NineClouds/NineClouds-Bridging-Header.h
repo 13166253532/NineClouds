@@ -11,7 +11,7 @@
 
 #import "iflyMSC/iflyMSC.h"
 #import "IFlySpeech.h"
-
+#import "VolumeView.h"
 //#import "JSONModel.h"
 #import "HTHttpConfig.h"
 #import "ProjectConfigGroup.h"

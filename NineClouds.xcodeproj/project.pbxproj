@@ -94,6 +94,7 @@
 		17BA30271F66588E00FE02CC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA30221F66588E00FE02CC /* BaseViewController.swift */; };
 		17BBA9331FC6B57D003824C9 /* ModelJudgeFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BBA9321FC6B57D003824C9 /* ModelJudgeFunc.m */; };
 		17BC61501FD7E6C00046C290 /* ISRDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E7E63B1FD6830B0036163C /* ISRDataHelper.m */; };
+		17BC61591FD7EF6D0046C290 /* VolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BC61581FD7EF6D0046C290 /* VolumeView.m */; };
 		17BE66B11F665C1400E6AF5B /* Accountinfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BE66B01F665C1400E6AF5B /* Accountinfo.swift */; };
 		17C1CD941F6B6854004888B0 /* BaseHttpAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C1CD931F6B6854004888B0 /* BaseHttpAPI.m */; };
 		17C1CD981F6B731C004888B0 /* NCLoginHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C1CD971F6B731C004888B0 /* NCLoginHttp.m */; };
@@ -305,6 +306,8 @@
 		17BA30221F66588E00FE02CC /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		17BBA9311FC6B57D003824C9 /* ModelJudgeFunc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelJudgeFunc.h; sourceTree = "<group>"; };
 		17BBA9321FC6B57D003824C9 /* ModelJudgeFunc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelJudgeFunc.m; sourceTree = "<group>"; };
+		17BC61571FD7EF6D0046C290 /* VolumeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VolumeView.h; sourceTree = "<group>"; };
+		17BC61581FD7EF6D0046C290 /* VolumeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VolumeView.m; sourceTree = "<group>"; };
 		17BE66B01F665C1400E6AF5B /* Accountinfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accountinfo.swift; sourceTree = "<group>"; };
 		17C1CD911F6B65AD004888B0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		17C1CD921F6B6854004888B0 /* BaseHttpAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseHttpAPI.h; sourceTree = "<group>"; };
@@ -760,6 +763,7 @@
 		17BA2F9F1F66546600FE02CC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				17BC61511FD7ED5B0046C290 /* VolumeView */,
 				17BA2FA01F66546600FE02CC /* AlertView */,
 				17BA2FA71F66546600FE02CC /* GMGridView */,
 				17BA2FB41F66546600FE02CC /* ToastView */,
@@ -903,6 +907,15 @@
 				17BA300D1F66582A00FE02CC /* UIView+WebCacheOperation.m */,
 			);
 			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		17BC61511FD7ED5B0046C290 /* VolumeView */ = {
+			isa = PBXGroup;
+			children = (
+				17BC61571FD7EF6D0046C290 /* VolumeView.h */,
+				17BC61581FD7EF6D0046C290 /* VolumeView.m */,
+			);
+			path = VolumeView;
 			sourceTree = "<group>";
 		};
 		17C1CD951F6B72BC004888B0 /* LoginHttp */ = {
@@ -1585,6 +1598,7 @@
 				1759730B1F6E42D600B74F81 /* TabBarView.m in Sources */,
 				17C1CDB51F6BE4FE004888B0 /* ShoppingCartViewController.swift in Sources */,
 				17AE83AF1F67AE4B00CDBF67 /* TestViewController.swift in Sources */,
+				17BC61591FD7EF6D0046C290 /* VolumeView.m in Sources */,
 				17BA30241F66588E00FE02CC /* BaseConfigFounction.swift in Sources */,
 				170FF5091F710AC100ED4B83 /* GetCIQRCodeFeature.m in Sources */,
 				17BA2FE41F66577200FE02CC /* UIView+Additions.m in Sources */,
