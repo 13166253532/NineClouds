@@ -199,19 +199,9 @@ class NCLoginViewController: BaseViewController,UITextFieldDelegate,UIAlertViewD
         
 
         //getHttpProjectdetailsRequire()
-        addSMAlertView()
+        
     }
-    func addSMAlertView(){
-        //SMAlertView.showAlert("1", cancelTitle: "2", delegate: self)
-        SMAlertView.showAlert("1", title: "2", cancleTitle: "3", okTitle: "4", delegate: self, viewTag: 20)
-    }
-    func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
-        if alertView.tag == 20 && buttonIndex == 0 {
-            print("1")
-        }else if alertView.tag == 20 && buttonIndex == 1{
-            print("2")
-        }
-    }
+    
     func getHUDView(str:String) {
         hud.labelText = str
         hud.show(true)
