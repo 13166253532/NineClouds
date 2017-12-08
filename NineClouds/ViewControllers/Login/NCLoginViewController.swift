@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NCLoginViewController: BaseViewController,UITextFieldDelegate {
+class NCLoginViewController: BaseViewController,UITextFieldDelegate,UIAlertViewDelegate {
     
     var backgroundImageView:UIImageView!
     var headTitleImage:UIImageView!
@@ -194,11 +194,23 @@ class NCLoginViewController: BaseViewController,UITextFieldDelegate {
 //        dic.setValue("a3208", forKey: "userid")
 //        dic.setValue("pass", forKey: "password")
 //        http.requestLoging(withParams: dic)
-        let vc:WebViewController=WebViewController.createViewController(createArgs: nil) as! WebViewController
-        self.pushViewController(viewController: vc, animated: true)
+       // let vc:WebViewController=WebViewController.createViewController(createArgs: nil) as! WebViewController
+        //self.pushViewController(viewController: vc, animated: true)
         
 
         //getHttpProjectdetailsRequire()
+        addSMAlertView()
+    }
+    func addSMAlertView(){
+        //SMAlertView.showAlert("1", cancelTitle: "2", delegate: self)
+        SMAlertView.showAlert("1", title: "2", cancleTitle: "3", okTitle: "4", delegate: self, viewTag: 20)
+    }
+    func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
+        if alertView.tag == 20 && buttonIndex == 0 {
+            print("1")
+        }else if alertView.tag == 20 && buttonIndex == 1{
+            print("2")
+        }
     }
     func getHUDView(str:String) {
         hud.labelText = str
@@ -239,8 +251,8 @@ class NCLoginViewController: BaseViewController,UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         userTextView.resignFirstResponder()
         passTextView.resignFirstResponder()
-    
     }
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

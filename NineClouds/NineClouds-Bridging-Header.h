@@ -8,6 +8,7 @@
 #import "SMToastView.h"
 #import "TabBarView.h"
 #import "ModelJudgeFunc.h"
+#import "SMAlertView.h"
 
 #import "iflyMSC/iflyMSC.h"
 #import "IFlySpeech.h"

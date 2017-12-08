@@ -31,27 +31,5 @@ func WHIDTH_RATIO()->CGFloat{
 func HEIGHT_RATIO()->CGFloat{
     return UIScreen.main.bounds.size.height/667
 }
-func showAlert(title:String,message:String,titleCancelBtn:String,titleSecondBtn:String,blockOtherBtn:@escaping selectBlock){
-    let alertController = UIAlertController(title: title,
-                                            message: message, preferredStyle: .alert)
-    
-    let cancelAction = UIAlertAction(title: titleCancelBtn, style: .cancel, handler: nil)
-    let okAction = UIAlertAction(title: titleSecondBtn, style: .default,
-                                 handler: {
-                                    action in
-                                    blockOtherBtn()
-    })
-    
-    alertController.addAction(cancelAction)
-    alertController.addAction(okAction)
-    AppRootViewController()!.present(alertController, animated: true, completion: nil)
-    
-}
-func AppRootViewController() -> UIViewController? {
-    var topVC = UIApplication.shared.keyWindow?.rootViewController
-    while topVC?.presentedViewController != nil {
-        topVC = topVC?.presentedViewController
-    }
-    return topVC
-}
+
 

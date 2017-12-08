@@ -47,13 +47,6 @@
     [alertView show];
 }
 
-//+(void)showAlert:(NSString*)content title:(NSString*)title cancleTitle:(NSString*)cancleTitle okTitle:(NSString*)okTitle delegate:(id)delegate
-//{
-//    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:title message:content delegate:self cancelButtonTitle:cancleTitle otherButtonTitles:okTitle, nil];
-//    alertView.delegate = delegate;
-//    [alertView show];
-//}
-
 +(void)showAlert:(NSString*)content title:(NSString*)title cancleTitle:(NSString*)cancleTitle okTitle:(NSString*)okTitle delegate:(id)delegate viewTag:(NSInteger)viewTag
 {
     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:title message:content delegate:self cancelButtonTitle:cancleTitle otherButtonTitles:okTitle, nil];
